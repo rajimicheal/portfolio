@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>Landing Page with Particle.js</title>
+
+    <style>
+        /* Style for Particle.js to cover the entire viewport */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            background: rgba(8, 8, 8, 1); /* Solid black background */
+        }
+        .testimonial-card {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .testimonial-container {
+            display: flex;
+            overflow: hidden;
+        }
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 4px;
+            background-color: #c4c4c4;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #000;
+        }
+        /* Ensure the header content is above the particles */
+        header,section,main {
+            position: relative;
+            z-index: 10;
+            background: transparent; /* Transparent to let the particles show through */
+        }
+@media screen  and (max-width:500px){
+  .fall{
+    margin: auto;
+
+    
+}}
+html{
+        scroll-behavior: smooth;
+      }
+   
+       
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Particle.js Background -->
+    <div id="particles-js"></div>
+
+    <!-- hero start -->
+    <header class="relative py-4">
+      <nav class="p-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <!-- Logo -->
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl xl:text-5xl font-bold text-white">
+                    MICHEAL<span class="text-orange-600">RAJI</span>
+                </h1>
+            </div>
+    
+            <!-- Hamburger Icon for Mobile (Appears below 1280px, including 1013px) -->
+            <div class="xl:hidden">
+                <button class="text-white" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+    
+            <!-- Desktop Navigation Menu (Hidden below 1280px) -->
+            <nav id="menu" class="hidden xl:flex space-x-6 xl:space-x-8 xl:space-x-12 text-white">
+                <a href="#" class="hover:text-orange-600 transition">Home</a>
+                <a href="#aboutme" class="hover:text-orange-600 transition">About Me</a>
+                <a href="#services" class="hover:text-orange-600 transition">Technologies</a>
+                <a href="#project" class="hover:text-orange-600 transition">Projects</a>
+                <a href="#test" class="hover:text-orange-600 transition">Testimonials</a>
+                <a href="#contact" class="hover:text-orange-600 transition">Contact</a>
+                <a href="MICHEALCV.pdf" download="RajiMicheal_Cv" class="bg-orange-600  text-white py-2 px-4 rounded hover:bg-orange-700 transition">Download CV</a>
+            </nav>
+        </div>
+    
+        <!-- Mobile Menu (Hidden initially, visible below 1280px, including 1013px) -->
+        <nav id="mobile-menu" class="xl:hidden flex absolute bg-orange-900 w-[1100px] rounded-sm  z-10 ml-11  p-4  flex-col space-y-4 mt-4 hidden text-white">
+            <a href="#" class="hover:text-orange-600 transition">Home</a>
+            <a href="#aboutme" class="hover:text-orange-600 transition">About Me</a>
+            <a href="#services" class="hover:text-orange-600 transition">Technologies</a>
+            <a href="#project" class="hover:text-orange-600 transition">Projects</a>
+            <a href="#test" class="hover:text-orange-600 transition">Testimonials</a>
+            <a href="#contact" class="hover:text-orange-600 transition">Contact</a>
+            <a href="MICHEALCV.pdf" download="RajiMicheal_Cv" class="bg-orange-600 w-40 text-white py-2 px-4 rounded hover:bg-orange-700 transition">Download CV</a>
+        </nav>
+    </nav>
+    
+
+        <!-- Hero Section -->
+        <div class="container mx-auto px-4 py-20 flex flex-wrap items-center justify-between">
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl text-white mb-2">
+                    Hi, I am<br /><span class="text-orange-600">Raji Micheal</span>
+                </h1>
+                <p class="text-5xl sm:text-6xl font-bold text-white mb-4">
+                    Frontend<br /><span>Developer</span>
+                </p>
+                <p class="mb-6 text-gray-200">
+                    Highly skilled Software Engineering professional with 1+ years of experience building dynamic 
+                    and responsive websites. Proven ability to develop parallel processing applications.
+                </p>
+                <button class="bg-orange-500 hover:bg-orange-700 text-white py-2 px-16 rounded shadow-lg transform transition duration-300 hover:scale-105">
+                    <a href="#contact">Hire Me</a>
+                </button>
+            </div>
+            <div class="w-full flex justify-center flex-col items-center md:w-1/4 mt-8 md:mt-0">
+                <div class="flex justify-center items-center">
+                    <img src="profile.jpg" alt="Raji Michael" class="w-60 h-60 rounded-full object-cover">
+                </div>
+                <div class="flex justify-center mt-4 space-x-4">
+                    <a href="https://web.facebook.com/profile.php?id=61565001971736&_rdc=1&_rdr" target="_blank">
+                        <img src="facebook-removebg-preview.png" alt="Facebook" class="w-6 transition hover:scale-125"/>
+                    </a>
+                    <a href="" target="_blank">
+                        <img src="insta-removebg-preview.png" alt="Instagram" class="w-6 transition hover:scale-125"/>
+                    </a>
+                    <a href="https://www.linkedin.com/in/micheal-raji-540b422a5/" target="_blank">
+                        <img src="=.png" alt="LinkedIn" class="w-6 transition hover:scale-125"/>
+
+                       
+                </div>
+            </div>
+        </div>
+
+       
+      </a>
+    </header>
+
+    <!-- hero end -->
+     <!-- About Me Section -->
+    <section>
+<!-- <div class="bg-gradient-to-br from-white via-gray-100 to-gray-200 flex flex-col md:flex-row justify-between items-center min-h-screen p-8" id="aboutme"> -->
+  <!-- <div class="flex flex-col md:flex-row justify-between items-center min-h-screen p-8" id=
+   "aboutme"></div> -->
+    <div class="flex flex-col md:flex-row justify-between items-center min-h-screen p-8" id="aboutme">
+  <!-- Image Section -->
+  <div class="flex justify-center md:w-1/3 mb-8 md:mb-0">
+    
+    <div class="try">
+    <img src="profile.jpg" alt="Raji Michael" class=" must w-64 h-64 rounded-full shadow-lg object-cover 
+    transform hover:scale-105 transition duration-300 ease-in-out">
+    <h1 class="tex-white">Micheal Raji</h1></div>
+  </div>
+
+  <!-- About Me Content -->
+  <div class="flex flex-col items-center md:items-start md:w-2/3 max-w-4xl  p-8 rounded-lg shadow-md">
+    <h2 class="text-4xl font-bold mb-4 text-white">About Me</h2>
+    <p class="text-lg text-white mb-6 text-center md:text-left">
+      A Frontend Developer passionate about creating sleek, user-friendly web interfaces. With expertise in HTML, CSS, and JavaScript, I enjoy bringing designs to life and delivering seamless user experiences. I’m always exploring the latest trends and technologies to improve my craft. Let's build something amazing together.
+    </p>
+
+    <!-- Skill Bars -->
+    <div class="w-full">
+      <div class="mb-4">
+        <p class="text-lg font-semibold text-white">HTML</p>
+        <div class="w-full bg-gray-300 rounded-full h-3">
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full" style="width: 90%"></div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <p class="text-lg font-semibold text-white">CSS</p>
+        <div class="w-full bg-gray-300 rounded-full h-3">
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full" style="width: 80%"></div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <p class="text-lg font-semibold text-white">Tailwind</p>
+        <div class="w-full bg-gray-300 rounded-full h-3">
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full" style="width: 50%"></div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <p class="text-lg font-semibold text-white">JavaScript</p>
+        <div class="w-full bg-gray-300 rounded-full h-3">
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full" style="width: 65%"></div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <p class="text-lg font-semibold text-white">Node</p>
+        <div class="w-full bg-gray-300 rounded-full h-3">
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full" style="width: 20%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+
+  <section class="py-8" id="services">
+    <div class="container mx-auto text-center ">
+      <h2 class="text-4xl font-bold mb-4  text-white ">Web Technologies</h2>
+      <p class=" text-white max-w-xl mx-auto mb-10">
+        Elevate your ideas with our expert design and development. Let’s turn your vision into exceptional web experiences.
+      </p>
+      <div class=" fall grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-8">
+        <!-- UI/UX -->
+        <div class="p-6 text-white bg-[#252323] rounded-lg shadow hover:shadow-lg transition">
+          <div class="flex justify-center mb-4 text-white">
+            <img src="html-removebg-preview (1).png" alt="UI/UX Icon" class="w-16 h-16">
+          </div>
+          <h3 class="text-xl font-semibold mb-2 ">Html</h3>
+          <p class="">Builds webpage structure with elements like headings and paragraphs.</p>
+        </div>
+        <!-- Web Design -->
+        <div class="p-6 text-white bg-[#252323] rounded-lg shadow hover:shadow-lg transition">
+          <div class="flex justify-center mb-4">
+            <img src="css-removebg-preview.png" alt="Web Design Icon" class="w-16 h-16">
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Css</h3>
+          <p class="">Styles HTML content, managing layout, colors, and fonts.</p>
+        </div>
+        <!-- App Design -->
+        <div class="p-6  rounded-lg bg-[#252323] text-white shadow hover:shadow-lg transition">
+          <div class="flex justify-center mb-4">
+            <img src="tailwind-removebg-preview (1).png" alt="App Design Icon" class="w-16 h-16">
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Tailwind</h3>
+          <p class=""> A utility-first framework for efficient, responsive styling with pre-built classes.</p>
+        </div>
+        <!-- Graphic Design -->
+        <div class="p-6 text-white bg-[#252323] rounded-lg shadow hover:shadow-lg transition">
+          <div class="flex justify-center mb-4">
+            <img src="js.png" alt="Graphic Design Icon" class="w-16 h-16">
+          </div>
+          <h3 class="text-xl font-semibold mb-2">JavaScript</h3>
+          <p class="">Adds interactive features and animations to webpages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+</main>
+<section class="py-4" id="project">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-4 text-white">My Projects</h2>
+    <p class="text-white max-w-xl mx-auto mb-8">
+      Discover creative and innovative solutions I’ve crafted with passion and skill.
+    </p>
+    <!-- Filter Buttons -->
+    <!--  -->
+    <!-- Project Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <a href="https://rajimicheal.github.io/uni/" target="_blank">
+        <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transition hover:shadow-2xl">
+          <img src="uni.png" alt="AirCalling Project" class="w-full h-56 object-cover">
+          <div class="p-6 text-left">
+            <span class="text-orange-500 font-semibold">Html And Css</span>
+            <h3 class="font-bold text-xl mt-2">University Portfolio</h3>
+          </div>
+        </div>
+      </a>
+      <!-- Card 2 -->
+      <a href="https://rajimicheal.github.io/netfixclone/"  target="_blank">
+        <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transition hover:shadow-2xl">
+          <img src="netfixclone.png" alt="Business Project" class="w-full h-56 object-cover">
+          <div class="p-6 text-left">
+            <span class="text-orange-500 font-semibold">Netflix Clone</span>
+            <h3 class="font-bold text-xl mt-2">Html and Tailwind</h3>
+          </div>
+        </div>
+      </a>
+      <!-- Card 3 -->
+      <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transition hover:shadow-2xl">
+        <img src="ec.png" alt="Ecom Project" class="w-full h-56 object-cover">
+        <div class="p-6 text-left">
+          <span class="text-orange-500 font-semibold">Web Design</span>
+          <h3 class="font-bold text-xl mt-2">Ecom Web Page Design</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- start of Testimonials -->
+   <section class="pt-16 text-white  pb-8" id="test">
+    <div class="container  mx-auto">
+        <h2 class="text-4xl font-semibold text-center mb-4">Testimonials</h2>
+        <p class=" text-center mb-8">The expense windows adapted sir. Wrong widen drawn ample eat off doors money.</p>
+
+        <!-- Slider Container -->
+        <div class="testimonial-container mx-auto max-w-4xl bg-[#252323] text-white">
+            <div class="testimonial-card  shadow-lg p-6 rounded-lg mx-2">
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Irene Strong" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold">Remi raji</h4>
+                        <p class="">I'm so proud of my son—his passion for tech is shaping a bright future</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card  shadow-lg p-6 rounded-lg mx-2">
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Jonas Kakaroto" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold">Alfa Tech</h4>
+                        <p class="">My student’s growth is inspiring—the future of tech is in great hands.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card  shadow-lg p-6 rounded-lg mx-2">
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="John Doe" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h4 class="text-xl font-semibold">John Doe</h4>
+                        <p class="">Worse linen an of civil jokes leave offer. Parties all clothes removal...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+
+        <!-- Dots Navigation -->
+        <div class="flex justify-center mt-4">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+</section>
+<section class="flex flex-col items-center justify-center py-12 px-4 md:px-8 lg:px-12 text-white text-center" id="contact">
+  <h1 class="text-4xl font-bold mb-4 ">Let's Design Together</h1>
+  <p class="text-lg  mb-6 max-w-xl">
+    Combine your creativity with ours to craft inspiring and impactful designs. Together, we shape the future!
+  </p>
+
+  <!-- Contact Form -->
+  <form class="w-full max-w-lg flex flex-col md:flex-col items-center space-y-3"  action="https://formspree.io/f/mvgopaaz" method="POST">
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter Your Email"
+      class="w-full  px-4 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
+      required
+    />
+    <input
+    type="text"
+    name="message"
+    placeholder="Send Your Letter"
+    class="w-full  px-4 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
+    required
+  />
+    <button
+      type="submit"
+      class="w-full  bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors duration-300"
+    >
+      Contact Me
+    </button>
+  </form>
+</section>
+
+    <!-- end of Testimonials -->
+    <footer class=" bg-orange-500  hellos py-4 rounded-sm h-fit``" >
+      <div class="container mx-auto flex flex-col items-center space-y-8 ">
+        <!-- Logo Section -->
+        <div class="flex flex-col items-center ">
+         
+          <h1 class="text-3xl font-bold text-white">Raji Micheal</h1>
+          <span class="text-sm text-white">Frontend Developer</span>
+        </div>
+    
+        <!-- Navigation Links -->
+        <nav class="flex flex-wrap justify-center space-x-8 text-white">
+          <a href="#" class="hover:text-green-500 transition-colors">Home</a>
+          <a href="#aboutme" class="hover:text-green-500 transition-colors">About Me</a>
+          <a href="#services" class="hover:text-green-500 transition-colors">Services</a>
+          <a href="#project" class="hover:text-green-500 transition-colors">Projects</a>
+          <a href="#test" class="hover:text-green-500 transition-colors">Testimonials</a>
+          <a href="#contact" class="hover:text-green-500 transition-colors">Contact</a>
+        </nav>
+
+        <!-- Social Media Links -->
+      <section class="flex space-x-6">
+        <a href="#">
+          <img src="facebook-removebg-preview.png" alt="Facebook" class="w-6">
+        </a>
+        <a href="#">
+          <img src="insta-removebg-preview.png" alt="Instagram" class="w-6">
+        </a>
+        <a href="#">
+          <img src="=.png" alt="Other" class="w-6">
+        </a>
+
+      </section>
+          
+     
+        
+        
+      </div>
+     
+      <!-- Copyright -->
+      <!-- <div class="text-center p-10 ">
+        <p class="text-sm text-gray-300 text-center flex items-center justify-center">
+         <span></span><span class="text-orange-500 font-bold">RajiMicheal</span> All Rights Reserved, Inc.
+        </p>
+      </div> -->
+
+
+    </footer >
+
+    <!-- Particle.js Script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="SCRIPT.JS"></script>
+    <script>
+
+
+
+
+
+      particlesJS('particles-js', {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#ff6600"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false
+          },
+          "size": {
+            "value": 5,
+            "random": true
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ff6600",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 6,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "attract": {
+              "enable": false
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "repulse"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            }
+          }
+        }
+      });
+    </script>
+
+</body>
+</html>
